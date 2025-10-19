@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نظام مراقبة تمويل المشاريع</title>
+  <meta name="description" content="نظام مراقبة تمويل المشاريع - حل رقمي مبتكر لمكافحة الفساد المالي في المشاريع">
+  <meta name="keywords" content="مراقبة مالية, مشاريع, تمويل, شفافية, مكافحة الفساد">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #222;
+    }
+    nav {
+      background: #002244;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background: #00bfa5;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2em;
+      opacity: 0.9;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      transition: transform 0.3s ease;
+    }
+    section:hover {
+      transform: translateY(-5px);
+    }
+    h2 {
+      color: #003366;
+      border-right: 5px solid #00bfa5;
+      padding-right: 10px;
+      margin-bottom: 20px;
+    }
+    p {
+      line-height: 1.8;
+      font-size: 1.1em;
+    }
+    ul {
+      line-height: 1.8;
+      font-size: 1.1em;
+    }
+    .highlight {
+      background-color: #e8f5e9;
+      padding: 15px;
+      border-radius: 10px;
+      border-right: 5px solid #00bfa5;
+      margin-top: 20px;
+    }
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    
+    /* قسم الاتصال المحسن */
+    .contact-section {
+      background: linear-gradient(135deg, #e6f2ff 0%, #e0f7fa 50%, #e8f5e9 100%);
+      padding: 80px 20px;
+      border-radius: 20px;
+      margin: 40px auto;
+      max-width: 1000px;
+    }
+    
+    .contact-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .contact-header h2 {
+      font-size: 2.5em;
+      color: #003366;
+      border: none;
+      padding: 0;
+      margin-bottom: 15px;
+    }
+    
+    .contact-divider {
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, #003366, #00bfa5);
+      margin: 0 auto 20px;
+      border-radius: 2px;
+    }
+    
+    .contact-description {
+      font-size: 1.2em;
+      color: #444;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    
+    .contact-info {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+    
+    .contact-quote {
+      font-size: 1.4em;
+      font-style: italic;
+      color: #003366;
+      text-align: center;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    
+    .contact-details {
+      margin-top: 30px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      transition: background 0.3s;
+    }
+    
+    .contact-item:hover {
+      background: #f5f5f5;
+    }
+    
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: #003366;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 15px;
+      font-size: 1.2em;
+    }
+    
+    .contact-text {
+      flex: 1;
+    }
+    
+    .contact-text strong {
+      display: block;
+      color: #003366;
+      margin-bottom: 5px;
+    }
+    
+    .contact-link {
+      color: #00bfa5;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .contact-link:hover {
+      color: #003366;
+      text-decoration: underline;
+    }
+    
+    .contact-form {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+    
+    .contact-form h3 {
+      color: #003366;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #003366;
+      font-weight: bold;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 1em;
+      box-sizing: border-box;
+      transition: border 0.3s;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: #00bfa5;
+      box-shadow: 0 0 0 2px rgba(0, 191, 165, 0.2);
+    }
+    
+    .submit-btn {
+      background: #00bfa5;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.3s;
+      width: 100%;
+    }
+    
+    .submit-btn:hover {
+      background: #003366;
+    }
+    
+    .form-message {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      display: none;
+    }
+    
+    .success {
+      background: #e8f5e9;
+      color: #2e7d32;
+      border: 1px solid #a5d6a7;
+    }
+    
+    .error {
+      background: #ffebee;
+      color: #c62828;
+      border: 1px solid #ef9a9a;
+    }
+    
+    /* تحسينات التجاوب */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+      section {
+        padding: 40px 15px;
+      }
+      nav a {
+        display: block;
+        margin: 5px 0;
+      }
+      .contact-content {
+        grid-template-columns: 1fr;
+      }
+      .contact-header h2 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav role="navigation">
+    <a href="#about">عن النظام</a>
+    <a href="#problem">المشكلة</a>
+    <a href="#goals">الأهداف</a>
+    <a href="#features">الميزات</a>
+    <a href="#contact">اتصل بنا</a>
+  </nav>
+
+  <header role="banner">
+    <h1 aria-label="نظام مراقبة تمويل المشاريع">نظام مراقبة تمويل المشاريع</h1>
+    <p>حل رقمي مبتكر يحد من النهب المالي والفساد في تنفيذ المشاريع</p>
+  </header>
+
+  <section id="about">
+    <h2>فكرة المشروع</h2>
+    <p>
+      يهدف النظام إلى إنشاء منصة رقمية تراقب عمليات التمويل والصرف الخاصة بالمشاريع الممولة،
+      من خلال ربط جميع الأطراف المعنية (صاحب المشروع – المنفذ – المورد – البنك)
+      ضمن منظومة واحدة تضمن الشفافية والدقة في تتبع الأموال والمواد المنصرفة.
+    </p>
+  </section>
+
+  <section id="problem">
+    <h2>المشكلة التي يحلها النظام</h2>
+    <ul>
+      <li>ضعف الرقابة على التمويل بعد صرف الدفعات.</li>
+      <li>احتمال التلاعب بالفواتير أو المشتريات الوهمية.</li>
+      <li>صعوبة التحقق من وصول المواد فعليًا إلى موقع المشروع.</li>
+      <li>غياب التكامل بين الجهات المنفذة والبنوك.</li>
+    </ul>
+  </section>
+
+  <section id="goals">
+    <h2>أهداف المشروع</h2>
+    <ul>
+      <li>تعزيز الشفافية في إدارة أموال المشاريع.</li>
+      <li>منع السرقات والنهب المالي عبر تتبع كل عملية صرف.</li>
+      <li>تحسين الثقة بين الممولين والمنفذين والموردين.</li>
+      <li>إنشاء سجل إلكتروني موحد لكل العمليات المالية والمشتريات.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>آلية العمل</h2>
+    <div class="highlight">
+      <p>
+        عند تمويل مشروع معين:
+      </p>
+      <ul>
+        <li>يُنشأ حساب خاص بالمشروع مرتبط بالبنك.</li>
+        <li>كل سحب أو دفعة مالية تمر عبر النظام ويتم توثيقها تلقائيًا.</li>
+        <li>يتم ربط الموردين عبر بطاقات أو رموز تحقق لتأكيد استلام المواد.</li>
+        <li>الفواتير تُرفع إلكترونيًا ويتم التأكد من صحتها ومطابقتها للمواد المستلمة.</li>
+        <li>يعرض النظام تقارير مالية فورية للجهة الممولة.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>الفوائد الرئيسية</h2>
+    <ul>
+      <li>خفض نسبة الهدر المالي في المشاريع.</li>
+      <li>تمكين الجهات الحكومية أو الممولة من تتبع الصرف بسهولة.</li>
+      <li>زيادة مصداقية الشركات المنفذة والموردين.</li>
+      <li>تسريع عمليات التدقيق والمراجعة المالية.</li>
+    </ul>
+  </section>
+
+  <!-- قسم الاتصال المحسن -->
+  <section id="contact" class="contact-section">
+    <div class="contact-header">
+      <h2>تواصل معنا</h2>
+      <div class="contact-divider"></div>
+      <p class="contact-description">نحن هنا للإجابة على استفساراتكم وتلقي مقترحاتكم حول نظام مراقبة تمويل المشاريع</p>
+    </div>
+    
+    <div class="contact-content">
+      <!-- معلومات الاتصال -->
+      <div class="contact-info">
+        <blockquote class="contact-quote">"الشفافية المالية هي أساس التنمية المستدامة والمشاريع الناجحة"</blockquote>
+        
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-text">
+              <strong>البريد الإلكتروني</strong>
+              <a href="mailto:info@project-monitor.sa" class="contact-link">info@project-monitor.sa</a>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div class="contact-text">
+              <strong>هاتف الاتصال</strong>
+              <span>+966 12 345 6789</span>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">🏢</div>
+            <div class="contact-text">
+              <strong>العنوان</strong>
+              <span>الرياض، المملكة العربية السعودية</span>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">🕒</div>
+            <div class="contact-text">
+              <strong>ساعات العمل</strong>
+              <span>الأحد - الخميس: 8 ص - 5 م</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- نموذج الاتصال -->
+      <div class="contact-form">
+        <h3>أرسل رسالة</h3>
+        <form id="contactForm" method="POST">
+          <div class="form-group">
+            <label for="name">الاسم الكامل *</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">البريد الإلكتروني *</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">رقم الهاتف</label>
+            <input type="tel" id="phone" name="phone" class="form-control">
+          </div>
+          
+          <div class="form-group">
+            <label for="company">الشركة / المؤسسة</label>
+            <input type="text" id="company" name="company" class="form-control">
+          </div>
+          
+          <div class="form-group">
+            <label for="message">الرسالة *</label>
+            <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">إرسال الرسالة</button>
+          
+          <div id="formMessage" class="form-message"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 نظام مراقبة تمويل المشاريع | جميع الحقوق محفوظة</p>
+  </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // جمع بيانات النموذج
+      const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        company: document.getElementById('company').value,
+        message: document.getElementById('message').value
+      };
+      
+      // في بيئة حقيقية، هنا سيتم إرسال البيانات إلى الخادم
+      // للمثال، سنعرض رسالة نجاح فقط
+      
+      const messageDiv = document.getElementById('formMessage');
+      messageDiv.textContent = 'شكراً لتواصلكم! تم استلام رسالتك وسنقوم بالرد في أقرب وقت.';
+      messageDiv.className = 'form-message success';
+      messageDiv.style.display = 'block';
+      
+      // إعادة تعيين النموذج
+      document.getElementById('contactForm').reset();
+      
+      // إخفاء الرسالة بعد 5 ثوان
+      setTimeout(() => {
+        messageDiv.style.display = 'none';
+      }, 5000);
+    });
+  </script>
+
+</body>
+</html>
